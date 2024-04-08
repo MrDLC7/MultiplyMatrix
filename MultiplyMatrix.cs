@@ -164,7 +164,6 @@ namespace MultiplyMatrix
 
                             //  Виділення пам'яті під новий тимчасовий результуючу матрицю
                             int[,] result = new int[rowsC, columnsC];
-
                             //  Функція повернення початкового виду результуючої матриці (видалення нульових рядків і стовпців)
                             result = ArrayMatrix_Down_ToSquare(array_matrix_squareC);
 

@@ -13,7 +13,7 @@ namespace MultiplyMatrix
             InitializeComponent();
             ArrayPowerOfTwo();
         }
-
+        //  Рядок і стовпець для кожної з матриць і останній розмір стовпців для правильного відображення нової матриці
         int rowsA = 0, columnsA = 0, last_columnA = 0;
         int rowsB = 0, columnsB = 0, last_columnB = 0;
         int rowsC = 0, columnsC = 0, last_columnC = 0;
@@ -24,12 +24,12 @@ namespace MultiplyMatrix
 
         int[,] matrixA;                     //  -   Матриця А
         int[,] matrixB;                     //  -   Матриця В
-        int[,] matrixC;                     //  -   Матриця С
+        int[,] matrixC;                     //  -   Матриця С (Результат множення)
         int[] arrayPowerOfTwo;              //  -   Масив степеня двійки
 
 
-        long time;
-        static Stopwatch stopwatch = new Stopwatch();
+        long time;                          //  - Змінна для часу виконання алгоритму
+        static Stopwatch stopwatch = new Stopwatch();                                //  -  Час виконання аглоритму
 
 
         private void btn_Set(object sender, EventArgs e)
@@ -39,54 +39,68 @@ namespace MultiplyMatrix
 
             if (clikedButton.Name == btn_SetA.Name)
             {
+                //  Максимальне випадкове число
                 int to_number_A = Convert.ToInt16(txtBox_to_A.Text);
-
+                //  Розмір матриці А
                 rowsA = Convert.ToInt16(rowA.Text);
                 columnsA = Convert.ToInt16(columnA.Text);
 
+                //  Виділення пам'яті по розмірах 
                 matrixA = new int[rowsA, columnsA];
+                //  Заповнення заголовків
                 HeaderColumn_Filling(dataTable, columnsA, last_columnA);
+                //  Випадкове заповнення
                 Random_Filling(matrixA, rowsA, columnsA, to_number_A);
-
+                //  Заповнення DataTable 
                 DataTable_Filling(dataTable, matrixA, rowsA, columnsA);
+                //  Правильне відображення DataGridView
                 DataGV_Filling(dataTable, dataGV_mxA, rowsA, columnsA);
-
+                //  Матриця А заповнена
                 enter_SetA = true;
             }
             else if (clikedButton.Name == btn_SetB.Name)
             {
+                //  Максимальне випадкове число
                 int to_number_B = Convert.ToInt16(txtBox_to_B.Text);
-
+                //  Розмір матриці В
                 rowsB = Convert.ToInt16(rowB.Text);
                 columnsB = Convert.ToInt16(columnB.Text);
 
+                //  Виділення пам'яті по розмірах
                 matrixB = new int[rowsB, columnsB];
+                //  Заповнення заголовків
                 HeaderColumn_Filling(dataTable, columnsB, last_columnB);
+                //  Випадкове заповнення
                 Random_Filling(matrixB, rowsB, columnsB, to_number_B);
 
 
+                //  Заповнення DataTable 
                 DataTable_Filling(dataTable, matrixB, rowsB, columnsB);
+                //  Правильне відображення DataGridView
                 DataGV_Filling(dataTable, dataGV_mxB, rowsB, columnsB);
-
+                //  Матриця А заповнена
                 enter_SetB = true;
             }
             else if (clikedButton.Name == btn_Result_mxC.Name)
             {
+                //  Рядок для огляду результатів швидкодії алгоритмів
                 string execution_time = "Час виконання:\n";
+                //  Якщо матриці А і В заповнені
                 if (enter_SetA && enter_SetB)
                 {
+                    //  Якщо рядок А рівний стовпцю В
                     if (rowsA == columnsB)
                     {
                         rowsC = rowsA;
                         columnsC = columnsB;
-
+                        //  Відображення розміру результуючої матриці  
                         lbl_size_result.Text = Convert.ToString(rowsC) + " x " + Convert.ToString(columnsC);
-
+                        //  Виділення пам'яті для результуючої матриці
                         matrixC = new int[rowsC, columnsC];
 
-                        HeaderColumn_Filling(dataTable, columnsC, last_columnC);
-
-                        if (SeachElementInArrayPower(rowsC) && SquareMatrix(rowsA, columnsA, rowsB, columnsB))
+                        //  Заповнення заголовків HeaderColumn_Filling(dataTable, columnsC, last_columnC);
+                        //  Якщо розмір матриці - степінь двійки і матриці А і Б однаково квадратні
+                        if (SeachElementInArrayPowerTwo(rowsC) && SquareMatrix(rowsA, columnsA, rowsB, columnsB))
                         {
                             stopwatch.Start();
                             matrixC = Strassen(matrixA, matrixB);
@@ -95,35 +109,44 @@ namespace MultiplyMatrix
                         }
                         else
                         {
-                            int indexTemp = MaxSizeValueMatrix();
+                            //  Максимальна довжина сторони з матриць А і В
+                            int indexTemp = MaxSizeSideMatrix();
+                            //  Найменший степінь двійки більший за максимальну довжину сторони
                             int index = SetSizeSquareWithArray_PowerTwo(indexTemp);
-
+                            //  Тимчасові масиви для демонстрації
                             int[,] array_matrix_squareA = new int[index, index];
                             int[,] array_matrix_squareB = new int[index, index];
                             int[,] array_matrix_squareC = new int[index, index];
 
-                            ArrayMatrix_Up_ToSquare(array_matrix_squareA, array_matrix_squareB, index);
+                            //  Функція заповнення матриць нулями для вирівнювання під степінь двійки 
+ArrayMatrix_Up_ToSquare(array_matrix_squareA, array_matrix_squareB, index);
 
-                            Print_Array(array_matrix_squareA, "MatrixA_Temp:");
-                            Print_Array(array_matrix_squareB, "MatrixB_Temp:");
-
+                            //  Виведення на екран тимчасової матриці А Print_Array(array_matrix_squareA, "MatrixA_Temp:");
+                            //  Виведення на екран тимчасової матриці В Print_Array(array_matrix_squareB, "MatrixB_Temp:");
+                            //  Старт вимірювання
                             stopwatch.Start();
                             array_matrix_squareC = Strassen(array_matrix_squareA, array_matrix_squareB);
+                            //  Переведення часу в мк
                             time = stopwatch.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
 
-                            Print_Array(array_matrix_squareC, "MatrixC_Temp:");
-
+                            //  Виведення на екран тимчасової результуючої матриці
+Print_Array(array_matrix_squareC, "MatrixC_Temp:");
+                            
                             execution_time += "Алгоритм Штрассена: " + Convert.ToString(time) + " мк\n";
-
+                            //  Виділення пам'яті під новий тимчасовий результуючу матрицю
                             int[,] result = new int[rowsC, columnsC];
+                            //  Функція повернення початкового виду результуючої матриці (видалення нульових рядків і стовпців)
                             result = ArrayMatrix_Down_ToSquare(array_matrix_squareC);
-
+                            //  Вивести результат початкового виду результуючої матриці 
                             Print_Array(result, "Result:\n");
                         }
-                        
+                        // Старт вимірювання
                         stopwatch.Start();
-                        Result_Multiplication();
+                        //  Алгоритм Стандартний
+                        Multiple_Standart();
+                        //  Кінець вимірювання 
                         stopwatch.Stop();
+                        //  Час вимірювання
                         time = stopwatch.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
                         execution_time += "Алгоритм Стандартний: " + Convert.ToString(time) + " мк";
 
@@ -245,7 +268,7 @@ namespace MultiplyMatrix
         }
 
         //  Результат множення матриць
-        private void Result_Multiplication()
+        private void MultipleStandart()
         {
             try
             {
@@ -412,7 +435,7 @@ namespace MultiplyMatrix
         }
 
         //  Перевірка на наявність числа в масиві степеня двійки
-        private bool SeachElementInArrayPower(int num_search)
+        private bool SeachElementInArrayPowerOfTwo(int num_search)
         {
             foreach (int num in arrayPowerOfTwo)
             {
@@ -422,7 +445,7 @@ namespace MultiplyMatrix
         }
 
         //  Пошук в масиві степеня більшого або рівного максимальній розмірності матриць
-        private int SetSizeSquareWithArray_PowerTwo(int num_min)
+        private int SetSizeSquareWithArray_PowerOfTwo(int num_min)
         {
             int number = num_min;
             foreach (int num in arrayPowerOfTwo)
@@ -464,7 +487,7 @@ namespace MultiplyMatrix
         }
 
         //  Максимальний розмір матриці
-        private int MaxSizeValueMatrix()
+        private int MaxSizeSideMatrix()
         {
             //  if ( rowsA >= columnsA && rowsA >= columnsB )
             //  { return rowsA; }

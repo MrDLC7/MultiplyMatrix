@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel_Main = new Panel();
+            PrintArrayTemp = new CheckBox();
             dataGV_mxC = new DataGridView();
             dataGV_mxA = new DataGridView();
             dataGV_mxB = new DataGridView();
@@ -65,6 +66,7 @@
             // panel_Main
             // 
             panel_Main.Anchor = AnchorStyles.None;
+            panel_Main.Controls.Add(PrintArrayTemp);
             panel_Main.Controls.Add(dataGV_mxC);
             panel_Main.Controls.Add(dataGV_mxA);
             panel_Main.Controls.Add(dataGV_mxB);
@@ -97,6 +99,18 @@
             panel_Main.Size = new Size(1179, 550);
             panel_Main.TabIndex = 0;
             // 
+            // PrintArrayTemp
+            // 
+            PrintArrayTemp.AutoSize = true;
+            PrintArrayTemp.CheckAlign = ContentAlignment.MiddleCenter;
+            PrintArrayTemp.Location = new Point(1158, 530);
+            PrintArrayTemp.Name = "PrintArrayTemp";
+            PrintArrayTemp.Size = new Size(18, 17);
+            PrintArrayTemp.TabIndex = 36;
+            PrintArrayTemp.TextAlign = ContentAlignment.MiddleCenter;
+            PrintArrayTemp.TextImageRelation = TextImageRelation.TextBeforeImage;
+            PrintArrayTemp.UseVisualStyleBackColor = true;
+            // 
             // dataGV_mxC
             // 
             dataGV_mxC.AllowUserToAddRows = false;
@@ -109,7 +123,8 @@
             dataGV_mxC.Name = "dataGV_mxC";
             dataGV_mxC.RowHeadersWidth = 51;
             dataGV_mxC.Size = new Size(350, 350);
-            dataGV_mxC.TabIndex = 20;
+            dataGV_mxC.TabIndex = 200;
+            dataGV_mxC.TabStop = false;
             // 
             // dataGV_mxA
             // 
@@ -123,7 +138,8 @@
             dataGV_mxA.Name = "dataGV_mxA";
             dataGV_mxA.RowHeadersWidth = 51;
             dataGV_mxA.Size = new Size(350, 350);
-            dataGV_mxA.TabIndex = 6;
+            dataGV_mxA.TabIndex = 60;
+            dataGV_mxA.TabStop = false;
             // 
             // dataGV_mxB
             // 
@@ -137,15 +153,16 @@
             dataGV_mxB.Name = "dataGV_mxB";
             dataGV_mxB.RowHeadersWidth = 51;
             dataGV_mxB.Size = new Size(350, 350);
-            dataGV_mxB.TabIndex = 13;
+            dataGV_mxB.TabIndex = 130;
+            dataGV_mxB.TabStop = false;
             // 
             // txtBox_to_B
             // 
             txtBox_to_B.Location = new Point(651, 90);
             txtBox_to_B.Name = "txtBox_to_B";
             txtBox_to_B.Size = new Size(34, 27);
-            txtBox_to_B.TabIndex = 35;
-            txtBox_to_B.Text = "8";
+            txtBox_to_B.TabIndex = 7;
+            txtBox_to_B.Text = "25";
             txtBox_to_B.TextAlign = HorizontalAlignment.Center;
             txtBox_to_B.Click += SelectAll_TextBox;
             txtBox_to_B.Validating += TextBox_Validating;
@@ -156,7 +173,7 @@
             lbl_from_B.Location = new Point(589, 93);
             lbl_from_B.Name = "lbl_from_B";
             lbl_from_B.Size = new Size(56, 20);
-            lbl_from_B.TabIndex = 33;
+            lbl_from_B.TabIndex = 330;
             lbl_from_B.Text = "0     до";
             // 
             // lbl_numbers_B
@@ -165,7 +182,7 @@
             lbl_numbers_B.Location = new Point(491, 93);
             lbl_numbers_B.Name = "lbl_numbers_B";
             lbl_numbers_B.Size = new Size(83, 20);
-            lbl_numbers_B.TabIndex = 32;
+            lbl_numbers_B.TabIndex = 320;
             lbl_numbers_B.Text = "Числа від:";
             // 
             // txtBox_to_A
@@ -173,8 +190,8 @@
             txtBox_to_A.Location = new Point(262, 90);
             txtBox_to_A.Name = "txtBox_to_A";
             txtBox_to_A.Size = new Size(34, 27);
-            txtBox_to_A.TabIndex = 27;
-            txtBox_to_A.Text = "8";
+            txtBox_to_A.TabIndex = 3;
+            txtBox_to_A.Text = "25";
             txtBox_to_A.TextAlign = HorizontalAlignment.Center;
             txtBox_to_A.Click += SelectAll_TextBox;
             txtBox_to_A.Validating += TextBox_Validating;
@@ -202,7 +219,7 @@
             lbl_size_result.Location = new Point(947, 54);
             lbl_size_result.Name = "lbl_size_result";
             lbl_size_result.Size = new Size(125, 25);
-            lbl_size_result.TabIndex = 21;
+            lbl_size_result.TabIndex = 210;
             lbl_size_result.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btn_Result_mxC
@@ -210,7 +227,7 @@
             btn_Result_mxC.Location = new Point(878, 121);
             btn_Result_mxC.Name = "btn_Result_mxC";
             btn_Result_mxC.Size = new Size(194, 33);
-            btn_Result_mxC.TabIndex = 19;
+            btn_Result_mxC.TabIndex = 9;
             btn_Result_mxC.Text = "Результат";
             btn_Result_mxC.UseVisualStyleBackColor = true;
             btn_Result_mxC.Click += btn_Set;
@@ -221,7 +238,7 @@
             lbl_Size_mxC.Location = new Point(878, 56);
             lbl_Size_mxC.Name = "lbl_Size_mxC";
             lbl_Size_mxC.Size = new Size(63, 20);
-            lbl_Size_mxC.TabIndex = 15;
+            lbl_Size_mxC.TabIndex = 150;
             lbl_Size_mxC.Text = "Розмір:";
             // 
             // lbl_mxC
@@ -230,7 +247,7 @@
             lbl_mxC.Location = new Point(945, 18);
             lbl_mxC.Name = "lbl_mxC";
             lbl_mxC.Size = new Size(88, 20);
-            lbl_mxC.TabIndex = 14;
+            lbl_mxC.TabIndex = 140;
             lbl_mxC.Text = "Матриця C";
             // 
             // btn_SetB
@@ -238,7 +255,7 @@
             btn_SetB.Location = new Point(491, 121);
             btn_SetB.Name = "btn_SetB";
             btn_SetB.Size = new Size(194, 33);
-            btn_SetB.TabIndex = 12;
+            btn_SetB.TabIndex = 8;
             btn_SetB.Text = "Заповнити";
             btn_SetB.UseVisualStyleBackColor = true;
             btn_SetB.Click += btn_Set;
@@ -249,7 +266,7 @@
             lbl_xB.Location = new Point(624, 56);
             lbl_xB.Name = "lbl_xB";
             lbl_xB.Size = new Size(17, 20);
-            lbl_xB.TabIndex = 11;
+            lbl_xB.TabIndex = 110;
             lbl_xB.Text = "x";
             lbl_xB.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -258,7 +275,7 @@
             columnB.Location = new Point(651, 53);
             columnB.Name = "columnB";
             columnB.Size = new Size(34, 27);
-            columnB.TabIndex = 10;
+            columnB.TabIndex = 6;
             columnB.Text = "8";
             columnB.TextAlign = HorizontalAlignment.Center;
             columnB.Click += SelectAll_TextBox;
@@ -269,7 +286,7 @@
             rowB.Location = new Point(580, 53);
             rowB.Name = "rowB";
             rowB.Size = new Size(34, 27);
-            rowB.TabIndex = 9;
+            rowB.TabIndex = 5;
             rowB.Text = "8";
             rowB.TextAlign = HorizontalAlignment.Center;
             rowB.Click += SelectAll_TextBox;
@@ -281,7 +298,7 @@
             lbl_Size_mxB.Location = new Point(491, 54);
             lbl_Size_mxB.Name = "lbl_Size_mxB";
             lbl_Size_mxB.Size = new Size(63, 20);
-            lbl_Size_mxB.TabIndex = 8;
+            lbl_Size_mxB.TabIndex = 82;
             lbl_Size_mxB.Text = "Розмір:";
             // 
             // lbl_mxB
@@ -290,7 +307,7 @@
             lbl_mxB.Location = new Point(558, 18);
             lbl_mxB.Name = "lbl_mxB";
             lbl_mxB.Size = new Size(89, 20);
-            lbl_mxB.TabIndex = 7;
+            lbl_mxB.TabIndex = 70;
             lbl_mxB.Text = "Матриця B";
             // 
             // btn_SetA
@@ -298,7 +315,7 @@
             btn_SetA.Location = new Point(102, 121);
             btn_SetA.Name = "btn_SetA";
             btn_SetA.Size = new Size(194, 33);
-            btn_SetA.TabIndex = 5;
+            btn_SetA.TabIndex = 4;
             btn_SetA.Text = "Заповнити";
             btn_SetA.UseVisualStyleBackColor = true;
             btn_SetA.Click += btn_Set;
@@ -309,7 +326,7 @@
             lbl_xA.Location = new Point(235, 56);
             lbl_xA.Name = "lbl_xA";
             lbl_xA.Size = new Size(17, 20);
-            lbl_xA.TabIndex = 4;
+            lbl_xA.TabIndex = 40;
             lbl_xA.Text = "x";
             lbl_xA.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -318,7 +335,7 @@
             columnA.Location = new Point(262, 53);
             columnA.Name = "columnA";
             columnA.Size = new Size(34, 27);
-            columnA.TabIndex = 3;
+            columnA.TabIndex = 2;
             columnA.Text = "8";
             columnA.TextAlign = HorizontalAlignment.Center;
             columnA.Click += SelectAll_TextBox;
@@ -329,7 +346,7 @@
             rowA.Location = new Point(191, 53);
             rowA.Name = "rowA";
             rowA.Size = new Size(34, 27);
-            rowA.TabIndex = 2;
+            rowA.TabIndex = 1;
             rowA.Text = "8";
             rowA.TextAlign = HorizontalAlignment.Center;
             rowA.Click += SelectAll_TextBox;
@@ -341,7 +358,7 @@
             lbl_Size_mxA.Location = new Point(102, 56);
             lbl_Size_mxA.Name = "lbl_Size_mxA";
             lbl_Size_mxA.Size = new Size(63, 20);
-            lbl_Size_mxA.TabIndex = 1;
+            lbl_Size_mxA.TabIndex = 201;
             lbl_Size_mxA.Text = "Розмір:";
             // 
             // lbl_mxA
@@ -350,7 +367,7 @@
             lbl_mxA.Location = new Point(169, 18);
             lbl_mxA.Name = "lbl_mxA";
             lbl_mxA.Size = new Size(90, 20);
-            lbl_mxA.TabIndex = 0;
+            lbl_mxA.TabIndex = 36;
             lbl_mxA.Text = "Матриця А";
             // 
             // lbl_res
@@ -422,5 +439,6 @@
         private Label lbl_numbers_B;
         private TextBox txtBox_to_A;
         private Label lbl_from_A;
+        private CheckBox PrintArrayTemp;
     }
 }

@@ -158,7 +158,7 @@ namespace MultiplyMatrix
                             time = stopwatch.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
 
                             //  Виведення на екран тимчасової результуючої матриці
-Print_Array(array_matrix_squareC, "MatrixC_Temp:");
+                            Print_Array(array_matrix_squareC, "MatrixC_Temp:");
                             
                             execution_time += "Алгоритм Штрассена: " + Convert.ToString(time) + " мк\n";
 
@@ -209,7 +209,7 @@ Print_Array(array_matrix_squareC, "MatrixC_Temp:");
             dataGV.RowHeadersVisible = false;           //  Відображення рядка заголовків
             dataGV.ColumnHeadersVisible = false;        //  Відображення стовпця заголовків
 
-            //  Без границь
+            //  Стиль рамок комірок
             dataGV.CellBorderStyle = DataGridViewCellBorderStyle.None;                       
             dataGV.AdvancedCellBorderStyle.All = DataGridViewAdvancedCellBorderStyle.None;   
 

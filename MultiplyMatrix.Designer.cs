@@ -398,6 +398,7 @@
             Controls.Add(panel_Main);
             MinimumSize = new Size(1200, 600);
             Name = "MultiplyMatrix";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MultiplyMatrix";
             panel_Main.ResumeLayout(false);
             panel_Main.PerformLayout();

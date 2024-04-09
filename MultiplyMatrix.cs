@@ -141,6 +141,11 @@ namespace MultiplyMatrix
                             //  Старт вимірювання
                             stopwatch.Start();
                             matrixC = Strassen(matrixA, matrixB);
+                            if (print_temp)
+                            {
+                                //  Виведення на екран тимчасової результуючої матриці
+                                Print_Array(matrixC, "MatrixC");
+                            }
 
                             //  Переведення часу виконання в мк
                             time = stopwatch.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
@@ -169,10 +174,10 @@ namespace MultiplyMatrix
                             if (print_temp)
                             {
                                 //  Виведення на екран тимчасової матриці А 
-                                Print_Array(array_matrix_squareA, "MatrixA_Temp:");
+                                Print_Array(array_matrix_squareA, "MatrixA_Temp");
 
                                 //  Виведення на екран тимчасової матриці В 
-                                Print_Array(array_matrix_squareB, "MatrixB_Temp:");
+                                Print_Array(array_matrix_squareB, "MatrixB_Temp");
                             }
 
                             //  Скинути час вимірювання
@@ -187,7 +192,7 @@ namespace MultiplyMatrix
                             if (print_temp)
                             {
                                 //  Виведення на екран тимчасової результуючої матриці
-                                Print_Array(array_matrix_squareC, "MatrixC_Temp:");
+                                Print_Array(array_matrix_squareC, "MatrixC_Temp");
                             }
                             execution_time += "Алгоритм Штрассена: " + Convert.ToString(time) + " мк\n";
 
@@ -201,24 +206,22 @@ namespace MultiplyMatrix
                             if (print_temp)
                             {
                                 //  Вивести результат початкового виду результуючої матриці 
-                                Print_Array(result, "Result:\n");
+                                Print_Array(result, "Result");
                             }
                         }
                         
                         //-----------------------------------//
-                        //  Множення алгоритмом Стандартним  //
+                        //  Множення алгоритмом Стандартний  //
                         //-----------------------------------//
                         
                         //  Скинути час вимірювання
                         stopwatch.Reset();
+
                         //  Старт вимірювання
                         stopwatch.Start();
 
                         //  Алгоритм Стандартний
-                        MultipleStandart();
-
-                        //  Кінець вимірювання 
-                        stopwatch.Stop();
+                        matrixC = MultipleStandart();
 
                         //  Переведення часу виконання в мк
                         time = stopwatch.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
@@ -354,8 +357,9 @@ namespace MultiplyMatrix
         }
 
         //  Множення матриць Стандартно
-        private void MultipleStandart()
+        private int [,] MultipleStandart()
         {
+            int[,] result = new int[rowsC, columnsC];
             try
             {
                 for (int i = 0; i < rowsC; i++)
@@ -364,12 +368,16 @@ namespace MultiplyMatrix
                     {
                         for (int k = 0; k < columnsA; k++)
                         {
-                            matrixC[i, j] += matrixA[i, k] * matrixB[k, j];
+                            result[i, j] += matrixA[i, k] * matrixB[k, j];
                         }
                     }
                 }
             }
             catch (Exception exp) { MessageBox.Show($"Error {exp}"); }
+
+            //  Кінець вимірювання 
+            stopwatch.Stop();
+            return result;
         }
 
         //  Вибрати все при натиску на вибране поле
@@ -385,18 +393,23 @@ namespace MultiplyMatrix
             TextBox? textBox = sender as TextBox;
             if (!IsValidData(textBox.Text))
             {
+                textBox.Text = "8";
                 MessageBox.Show("Тільки число");
             }
             if (Convert.ToInt16(textBox.Text) <= 0)
             {
+                textBox.Text = "8";
                 MessageBox.Show("Тільки число більше від 0");
             }
+            textBox.SelectAll();
+
             if (Convert.ToInt16(textBox.Text) > 256)
             {
-                MessageBox.Show("Тільки число не більше від 256");
+                textBox.Text = "8";
+                MessageBox.Show("Тільки число не більше 256");
+                textBox.Focus();
             }
-            textBox.Text = "8";
-            textBox.SelectAll();
+            
         }
 
         //  Перевірка коректності
@@ -506,6 +519,8 @@ namespace MultiplyMatrix
                         result[i + newSize, j + newSize] = C22[i, j];
                     }
                 }
+
+                //  Кінець вимірювання 
                 stopwatch.Stop();
                 return result;
             }
@@ -631,7 +646,7 @@ namespace MultiplyMatrix
         //  Виведення масивів на екран
         private void Print_Array(int[,] matrix, string name)
         {
-            string result = $"Масив {name}\n";
+            string result = string.Empty;
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
                 for (int j = 0; j < matrix.GetLength(1); j++)
@@ -644,7 +659,7 @@ namespace MultiplyMatrix
                 }
                 result += '\n';
             }
-            MessageBox.Show(result);
+            MessageBox.Show(result, "Масив: " + name);
         }
 
         //  Велике число в матриці

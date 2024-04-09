@@ -37,6 +37,13 @@ namespace MultiplyMatrix
 
         private void btn_Set(object sender, EventArgs e)
         {
+            //  Скинути час вимірювання
+            stopwatch.Reset();
+            //  Старт вимірювання
+            stopwatch.Start();
+            //  Кінець вимірювання 
+            stopwatch.Stop();
+
             big_number = false;
 
             DataTable dataTable = new DataTable();
@@ -106,6 +113,7 @@ namespace MultiplyMatrix
             }
             else if (clikedButton.Name == btn_Result_mxC.Name)
             {
+
                 bool print_temp = PrintArrayTemp.Checked;
                 //  Рядок для огляду результатів швидкодії алгоритмів
                 string execution_time = "Час виконання:\n";
@@ -227,6 +235,9 @@ namespace MultiplyMatrix
                         time = stopwatch.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
                         execution_time += "Алгоритм Стандартний: " + Convert.ToString(time) + " мк";
 
+                        //  Виведення часу виконання на екран
+                        MessageBox.Show(execution_time);
+
                         //  Заповнення DataTable 
                         DataTable_Filling(dataTable, matrixC, rowsC, columnsC);
 
@@ -235,9 +246,6 @@ namespace MultiplyMatrix
 
                         //  Заповнення і форматування DataGridView
                         DataGV_Format_And_Filling(dataTable, dataGV_mxC, rowsC, columnsC);
-
-                        //  Виведення часу виконання на екран
-                        MessageBox.Show(execution_time);
                     }
                     else
                     {

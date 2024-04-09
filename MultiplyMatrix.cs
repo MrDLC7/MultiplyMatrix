@@ -482,7 +482,7 @@ namespace MultiplyMatrix
                 int[,] C21 = AddMatrix(M2, M4);
                 int[,] C22 = AddMatrix(SubtractMatrix(AddMatrix(M1, M3), M2), M6);
 
-                //  Зібрання результатів із підматриць
+                //  Зібрання результатів в одну матрицю
                 int[,] result = new int[n, n];
                 for (int i = 0; i < newSize; i++)
                 {

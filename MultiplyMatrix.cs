@@ -374,14 +374,16 @@ namespace MultiplyMatrix
             if (!IsValidData(textBox.Text))
             {
                 MessageBox.Show("Тільки число");
-                textBox.Text = "8";
             }
-
             if (Convert.ToInt16(textBox.Text) <= 0)
             {
-                textBox.Text = "8";
                 MessageBox.Show("Тільки число більше від 0");
             }
+            if (Convert.ToInt16(textBox.Text) > 256)
+            {
+                MessageBox.Show("Тільки число не більше від 256");
+            }
+            textBox.Text = "8";
             textBox.SelectAll();
         }
 

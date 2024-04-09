@@ -132,6 +132,10 @@ namespace MultiplyMatrix
                         //  Якщо розмір матриці - степінь двійки і матриці А і Б однаково квадратні
                         if (SeachElementIn_ArrayPowerOfTwo(rowsC) && SquareMatrix(rowsA, columnsA, rowsB, columnsB))
                         {
+                            //---------------------------------//
+                            //  Множення алгоритмом Штрассена  //
+                            //---------------------------------//
+                            
                             //  Скинути час вимірювання
                             stopwatch.Reset();
                             //  Старт вимірювання
@@ -144,6 +148,10 @@ namespace MultiplyMatrix
                         }
                         else
                         {
+                            //--------------------------------------------------------//
+                            //  Множення алгоритмом Штрассена "Не квадратних матриць" //
+                            //--------------------------------------------------------//
+                            
                             //  Максимальна довжина сторони з матриць А і В
                             int indexTemp = MaxSizeSideMatrix();
 
@@ -196,7 +204,11 @@ namespace MultiplyMatrix
                                 Print_Array(result, "Result:\n");
                             }
                         }
-
+                        
+                        //-----------------------------------//
+                        //  Множення алгоритмом Стандартним  //
+                        //-----------------------------------//
+                        
                         //  Скинути час вимірювання
                         stopwatch.Reset();
                         //  Старт вимірювання
@@ -221,7 +233,7 @@ namespace MultiplyMatrix
                         //  Заповнення і форматування DataGridView
                         DataGV_Format_And_Filling(dataTable, dataGV_mxC, rowsC, columnsC);
 
-                        //  Виведення результатів на екран
+                        //  Виведення часу виконання на екран
                         MessageBox.Show(execution_time);
                     }
                     else

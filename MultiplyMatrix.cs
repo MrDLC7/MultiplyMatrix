@@ -341,7 +341,7 @@ namespace MultiplyMatrix
             catch (Exception exp) { MessageBox.Show($"Error {exp}"); }
         }
 
-        //  Результат множення матриць
+        //  Множення матриць Стандартно
         private void MultipleStandart()
         {
             try

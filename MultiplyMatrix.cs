@@ -15,7 +15,7 @@ namespace MultiplyMatrix
             ArrayPowerOfTwo();
         }
 
-        //  Рядок і стовпець для кожної з матриць і останній розмір стовпців для правильного відображення нової матриці
+        //  Рядок і стовпець для кожної з матриць і минула кількість стовпців для правильного відображення нової матриці
         int rowsA = 0, columnsA = 0, last_columnA = 0;
         int rowsB = 0, columnsB = 0, last_columnB = 0;
         int rowsC = 0, columnsC = 0, last_columnC = 0;

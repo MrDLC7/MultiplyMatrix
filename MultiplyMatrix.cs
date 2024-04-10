@@ -34,7 +34,7 @@ namespace MultiplyMatrix
         long time;                                        //  -  Змінна для часу виконання алгоритму
         static Stopwatch stopwatch = new Stopwatch();     //  -  Час виконання аглоритму
 
-
+        //  Обробка натиску кнопок і реалізація логіки відповідно до натиску кнопки
         private void btn_Set(object sender, EventArgs e)
         {
             //  Скинути час вимірювання
@@ -661,10 +661,10 @@ namespace MultiplyMatrix
             {
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    if (matrix[i, j] < 10)
+                    for (int k = matrix[i, j]; k > 0; k /= 10)
+                    {
                         result += ' ';
-                    if (matrix[i, j] < 100)
-                        result += ' ';
+                    }
                     result += matrix[i, j].ToString() + ' ';
                 }
                 result += '\n';

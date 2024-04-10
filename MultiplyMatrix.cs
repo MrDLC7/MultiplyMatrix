@@ -395,7 +395,7 @@ namespace MultiplyMatrix
             clickedTextBox.SelectAll();
         }
 
-        //  Обробка коректністі текстбоксів
+        //  Обробка коректності текстбоксів
         private void TextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TextBox? textBox = sender as TextBox;
@@ -409,15 +409,17 @@ namespace MultiplyMatrix
                 textBox.Text = "8";
                 MessageBox.Show("Тільки число більше від 0");
             }
-            textBox.SelectAll();
-
+            
             if (Convert.ToInt16(textBox.Text) > 256)
             {
+                if (textBox == txtBox_to_A || textBox == txtBox_to_B)
+                    return;
                 textBox.Text = "8";
                 MessageBox.Show("Тільки число не більше 256");
                 textBox.Focus();
             }
-            
+
+            textBox.SelectAll();
         }
 
         //  Перевірка коректності

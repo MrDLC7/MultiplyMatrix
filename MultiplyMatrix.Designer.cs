@@ -161,10 +161,11 @@
             txtBox_to_B.Location = new Point(651, 90);
             txtBox_to_B.Name = "txtBox_to_B";
             txtBox_to_B.Size = new Size(34, 27);
-            txtBox_to_B.TabIndex = 7;
+            txtBox_to_B.TabIndex = 8;
             txtBox_to_B.Text = "25";
             txtBox_to_B.TextAlign = HorizontalAlignment.Center;
             txtBox_to_B.Click += SelectAll_TextBox;
+            txtBox_to_B.Enter += SelectAll_TextBox;
             txtBox_to_B.Validating += TextBox_Validating;
             // 
             // lbl_from_B
@@ -190,10 +191,11 @@
             txtBox_to_A.Location = new Point(262, 90);
             txtBox_to_A.Name = "txtBox_to_A";
             txtBox_to_A.Size = new Size(34, 27);
-            txtBox_to_A.TabIndex = 3;
+            txtBox_to_A.TabIndex = 4;
             txtBox_to_A.Text = "25";
             txtBox_to_A.TextAlign = HorizontalAlignment.Center;
             txtBox_to_A.Click += SelectAll_TextBox;
+            txtBox_to_A.Enter += SelectAll_TextBox;
             txtBox_to_A.Validating += TextBox_Validating;
             // 
             // lbl_from_A
@@ -227,7 +229,7 @@
             btn_Result_mxC.Location = new Point(878, 121);
             btn_Result_mxC.Name = "btn_Result_mxC";
             btn_Result_mxC.Size = new Size(194, 33);
-            btn_Result_mxC.TabIndex = 9;
+            btn_Result_mxC.TabIndex = 10;
             btn_Result_mxC.Text = "Результат";
             btn_Result_mxC.UseVisualStyleBackColor = true;
             btn_Result_mxC.Click += btn_Set;
@@ -255,7 +257,7 @@
             btn_SetB.Location = new Point(491, 121);
             btn_SetB.Name = "btn_SetB";
             btn_SetB.Size = new Size(194, 33);
-            btn_SetB.TabIndex = 8;
+            btn_SetB.TabIndex = 9;
             btn_SetB.Text = "Заповнити";
             btn_SetB.UseVisualStyleBackColor = true;
             btn_SetB.Click += btn_Set;
@@ -275,10 +277,11 @@
             columnB.Location = new Point(651, 53);
             columnB.Name = "columnB";
             columnB.Size = new Size(34, 27);
-            columnB.TabIndex = 6;
+            columnB.TabIndex = 7;
             columnB.Text = "8";
             columnB.TextAlign = HorizontalAlignment.Center;
             columnB.Click += SelectAll_TextBox;
+            columnB.Enter += SelectAll_TextBox;
             columnB.Validating += TextBox_Validating;
             // 
             // rowB
@@ -286,10 +289,11 @@
             rowB.Location = new Point(580, 53);
             rowB.Name = "rowB";
             rowB.Size = new Size(34, 27);
-            rowB.TabIndex = 5;
+            rowB.TabIndex = 6;
             rowB.Text = "8";
             rowB.TextAlign = HorizontalAlignment.Center;
             rowB.Click += SelectAll_TextBox;
+            rowB.Enter += SelectAll_TextBox;
             rowB.Validating += TextBox_Validating;
             // 
             // lbl_Size_mxB
@@ -315,7 +319,7 @@
             btn_SetA.Location = new Point(102, 121);
             btn_SetA.Name = "btn_SetA";
             btn_SetA.Size = new Size(194, 33);
-            btn_SetA.TabIndex = 4;
+            btn_SetA.TabIndex = 5;
             btn_SetA.Text = "Заповнити";
             btn_SetA.UseVisualStyleBackColor = true;
             btn_SetA.Click += btn_Set;
@@ -335,10 +339,11 @@
             columnA.Location = new Point(262, 53);
             columnA.Name = "columnA";
             columnA.Size = new Size(34, 27);
-            columnA.TabIndex = 2;
+            columnA.TabIndex = 3;
             columnA.Text = "8";
             columnA.TextAlign = HorizontalAlignment.Center;
             columnA.Click += SelectAll_TextBox;
+            columnA.Enter += SelectAll_TextBox;
             columnA.Validating += TextBox_Validating;
             // 
             // rowA
@@ -346,10 +351,11 @@
             rowA.Location = new Point(191, 53);
             rowA.Name = "rowA";
             rowA.Size = new Size(34, 27);
-            rowA.TabIndex = 1;
+            rowA.TabIndex = 2;
             rowA.Text = "8";
             rowA.TextAlign = HorizontalAlignment.Center;
             rowA.Click += SelectAll_TextBox;
+            rowA.Enter += SelectAll_TextBox;
             rowA.Validating += TextBox_Validating;
             // 
             // lbl_Size_mxA

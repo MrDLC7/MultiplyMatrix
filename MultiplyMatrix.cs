@@ -37,13 +37,6 @@ namespace MultiplyMatrix
         //  Обробка натиску кнопок і реалізація логіки відповідно до натиску кнопки
         private void btn_Set(object sender, EventArgs e)
         {
-            //  Скинути час вимірювання
-            stopwatch.Reset();
-            //  Старт вимірювання
-            stopwatch.Start();
-            //  Кінець вимірювання 
-            stopwatch.Stop();
-
             big_number = false;
 
             DataTable dataTable = new DataTable();
@@ -661,11 +654,7 @@ namespace MultiplyMatrix
             {
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    for (int k = matrix[i, j]; k > 0; k /= 10)
-                    {
-                        result += ' ';
-                    }
-                    result += matrix[i, j].ToString() + ' ';
+                    result += matrix[i, j].ToString() + ' ' + ' ';
                 }
                 result += '\n';
             }

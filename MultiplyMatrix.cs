@@ -357,7 +357,7 @@ namespace MultiplyMatrix
             catch (Exception exp) { MessageBox.Show($"Error {exp}"); }
         }
 
-        //  Множення матриць Стандартно
+        //  Множення матриць Стандартний
         private int [,] MultipleStandart()
         {
             int[,] result = new int[rowsC, columnsC];
@@ -381,14 +381,14 @@ namespace MultiplyMatrix
             return result;
         }
 
-        //  Вибрати все при натиску на вибране поле
+        //  Вибрати все при натиску на обране поле
         private void SelectAll_TextBox(object sender, EventArgs e)
         {
             TextBox clickedTextBox = sender as TextBox;
             clickedTextBox.SelectAll();
         }
 
-        //  Обробка коректності текстбоксів
+        //  Обробка коректності текстбоксів (Валідація)
         private void TextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             TextBox? textBox = sender as TextBox;
@@ -529,7 +529,7 @@ namespace MultiplyMatrix
             }
         }
 
-        //  Заповнення масиву степеня двійки
+        //  Заповнення масиву степенів двійки
         private void ArrayPowerOfTwo()
         {
             const int N = 20;
@@ -540,7 +540,7 @@ namespace MultiplyMatrix
             }
         }
 
-        //  Перевірка на наявність числа в масиві степеня двійки
+        //  Перевірка на наявність числа в масиві степенів двійки
         private bool SeachElementIn_ArrayPowerOfTwo(int num_search)
         {
             foreach (int num in arrayPowerOfTwo)
@@ -550,7 +550,7 @@ namespace MultiplyMatrix
             return false;
         }
 
-        //  Пошук в масиві степеня більшого або рівного максимальній розмірності матриць
+        //  Пошук в масиві степенів більшого або рівного максимальній розмірності матриць
         private int SetSizeSquareWithArray_PowerOfTwo(int num_min)
         {
             int number = num_min;
